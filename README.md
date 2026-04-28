@@ -1,4 +1,4 @@
-# S.I.N.A
+# S.I.N.A ⇩
 Projeto S.I.N.A (Sistema Integrado de Aprendizagem Ativa)
 
 O Que é o Projeto:  
