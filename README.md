@@ -2,18 +2,18 @@
 
 <div align="center">
 
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![Unlicense License][license-shield]][license-url]
+  <img src="https://img.shields.io/github/contributors/Gengiscana/S.I.N.A?style=for-the-badge" alt="Contributors">
+  <img src="https://img.shields.io/github/forks/Gengiscana/S.I.N.A?style=for-the-badge" alt="Forks">
+  <img src="https://img.shields.io/github/stars/Gengiscana/S.I.N.A?style=for-the-badge" alt="Stars">
+  <img src="https://img.shields.io/github/issues/Gengiscana/S.I.N.A?style=for-the-badge" alt="Issues">
+  <img src="https://img.shields.io/github/license/Gengiscana/S.I.N.A?style=for-the-badge" alt="License">
 
 </div>
 
 <br />
 <div align="center">
   <a href="https://github.com/Gengiscana/S.I.N.A">
-    <img src="images/sinawithoutbackground.png" alt="Logo" width="120" height="120">
+    <img src="logo.png" alt="Logo" width="150">
   </a>
 
 <h3 align="center">S.I.N.A</h3>
@@ -21,7 +21,7 @@
   <p align="center">
     <strong>Sistema Integrado de Aprendizagem Ativa</strong>
     <br />
-    Uma solução de engajamento educacional baseada em visão computacional para a rede SESI.
+    Engajamento educacional via visão computacional integrado ao ecossistema SESI.
     <br />
     <br />
     <a href="https://github.com/Gengiscana/S.I.N.A">Explorar Docs</a>
@@ -51,46 +51,57 @@
     <li><a href="#funcionalidades">Funcionalidades</a></li>
     <li><a href="#requisitos-não-funcionais">Requisitos Não Funcionais</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contribuição">Contribuição</a></li>
-    <li><a href="#contato">Contato</a></li>
+    <li><a href="#contribuição">Contato</a></li>
   </ol>
 </details>
 
 ## Sobre o Projeto
 
-O **S.I.N.A** é um sistema inovador que utiliza visão computacional para coletar respostas em sala de aula de forma instantânea e lúdica. Inspirado no sistema Plickers, o projeto foi adaptado para a realidade tecnológica e pedagógica da rede SESI.
+O **S.I.N.A** é um ecossistema desenvolvido para transformar a dinâmica de sala de aula. Através de uma câmera acoplada a um tripé e cartões físicos de MDF (produzidos via corte a laser), o sistema escaneia as respostas dos alunos simultaneamente utilizando **OpenCV**.
 
-**O Problema:** A necessidade de engajamento ativo sem depender de celulares individuais (em conformidade com a Lei 15.100/2025).
-**A Solução:** Um sistema centralizado composto por uma câmera, um tripé e cartões de MDF fabricados via corte a laser (Maker).
+**Por que o S.I.N.A?**
+* **Conformidade Legal:** Respeita a proibição de celulares em sala (Lei 15.100/2025).
+* **Autonomia:** Utiliza processamento local via **Raspberry Pi** dentro da rede SESI.
+* **Gamificação:** Gera rankings automáticos e dashboards no **Power BI** para visualização em TVs escolares.
 
-### Como funciona:
-* **Hardware:** Uma câmera posicionada à frente da sala escaneia os cartões levantados pelos alunos.
-* **Processamento Local:** Os dados são buscados em um servidor local (**Raspberry Pi**) para garantir autonomia e velocidade.
-* **Dados:** O sistema gera relatórios automáticos para o professor e alimenta rankings de desempenho integrados ao **Power BI**.
 
-<p align="right">(<a href="#readme-top">voltar ao topo</a>)</p>
 
 ### Tecnologias Utilizadas
 
-* [![OpenCV][OpenCV-badge]][OpenCV-url]
-* [![Python][Python-badge]][Python-url]
-* [![RaspberryPi][Raspberry-badge]][Raspberry-url]
-* [![PowerBI][PowerBI-badge]][PowerBI-url]
+<div align="left">
+  <img src="https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white" alt="OpenCV">
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/Raspberry%20Pi-A22846?style=for-the-badge&logo=raspberrypi&logoColor=white" alt="Raspberry Pi">
+  <img src="https://img.shields.io/badge/Power_BI-F2C811?style=for-the-badge&logo=microsoftpowerbi&logoColor=black" alt="Power BI">
+</div>
 
-<p align="right">(<a href="#readme-top">voltar ao topo</a>)</p>
 
 ## Primeiros Passos
 
-Para rodar o ambiente de desenvolvimento ou instalar na rede escolar, siga os passos abaixo.
-
 ### Pré-requisitos
-
-* Câmera USB ou Módulo de Câmera Raspberry Pi.
-* Python 3.10+ instalado.
-* Cartões de marcadores visuais (arquivos de corte inclusos na pasta `/maker`).
+* Python 3.10 ou superior.
+* Câmera USB ou módulo de câmera para Raspberry.
+* Bibliotecas: `opencv-python` e `numpy`.
 
 ### Instalação
-
-1. Clone o repositório
+1. Clone o repositório:
    ```sh
    git clone [https://github.com/Gengiscana/S.I.N.A.git](https://github.com/Gengiscana/S.I.N.A.git)
+
+## Contribuição
+
+Contribuições para o aprimoramento do projeto será **muito apreciada**, caso queria, siga os passos abaixo:
+
+1. Faça um Fork do projeto
+2. Crie sua Feature Branch (`git checkout -b feature/coisabiglegal`)
+3. Commite suas mudanças (`git commit -m 'Add some coisabiglegal'`)
+4. Faça o Push para a Branch (`git push origin feature/coisamuitolegal`)
+5. Abra um Pull Request
+
+### Desenvolvedores:
+
+<a href="https://github.com/Gengiscana/S.I.N.A/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Gengiscana/S.I.N.A" />
+</a>
+
+<p align="right"><a href="#readme-top">voltar ao topo ↺</a></p>
