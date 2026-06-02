@@ -78,7 +78,10 @@ O **S.I.N.A** é um ecossistema desenvolvido para transformar a dinâmica de sal
 
 ## Primeiros Passos
 
-
+### Pré-requisitos
+* Python 3.10 ou superior.
+* Câmera USB ou módulo de câmera para Raspberry.
+* Bibliotecas: `opencv-python` e `numpy`.
 
 ### Instalação
 1. Clone o repositório:
