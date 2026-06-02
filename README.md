@@ -98,7 +98,7 @@ Contribuições para o aprimoramento do projeto será **muito apreciada**, caso 
 4. Faça o Push para a Branch (`git push origin feature/coisamuitolegal`)
 5. Abra um Pull Request
 
-### Desenvolvedores
+### Desenvolvedores:
 
 <a href="https://github.com/Gengiscana/S.I.N.A/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=Gengiscana/S.I.N.A" />
