@@ -92,13 +92,6 @@ O **S.I.N.A** é um ecossistema desenvolvido para transformar a dinâmica de sal
 
 Contribuições para o aprimoramento do projeto será **muito apreciada**, caso queria, siga os passos abaixo:
 
-1. Faça um Fork do projeto
-2. Crie sua Feature Branch (`git checkout -b feature/coisabiglegal`)
-3. Commite suas mudanças (`git commit -m 'Add some coisabiglegal'`)
-4. Faça o Push para a Branch (`git push origin feature/coisamuitolegal`)
-5. Abra um Pull Request
-
-### Desenvolvedores:
 
 <a href="https://github.com/Gengiscana/S.I.N.A/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=Gengiscana/S.I.N.A" />
