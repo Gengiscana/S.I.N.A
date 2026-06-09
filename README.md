@@ -98,3 +98,11 @@ Contribuições para o aprimoramento do projeto será **muito apreciada**, caso 
 </a>
 
 <p align="right"><a href="#readme-top">voltar ao topo ↺</a></p>
+
+1. Faça um Fork do projeto
+2. Crie sua Feature Branch (`git checkout -b feature/coisabiglegal`)
+3. Commite suas mudanças (`git commit -m 'Add some coisabiglegal'`)
+4. Faça o Push para a Branch (`git push origin feature/coisamuitolegal`)
+5. Abra um Pull Request
+
+### Desenvolvedores:
