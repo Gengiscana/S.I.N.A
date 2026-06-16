@@ -24,9 +24,9 @@
     Engajamento educacional via visão computacional integrado ao ecossistema SESI.
     <br />
     <br />
-    <a href="https://bonesebonese.my.canva.site/sina/">Explorar o Protótipo</a>
-    ·
     <a href="https://github.com/Gengiscana/S.I.N.A/issues">Reportar Bug</a>
+    ·
+    <a href="https://bonesebonese.my.canva.site/sina/">Explorar o Protótipo</a>
     ·
     <a href="https://github.com/Gengiscana/S.I.N.A/issues">Sugestões</a>
   </p>
