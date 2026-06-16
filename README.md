@@ -120,9 +120,6 @@ A **S.I.N.A** é um ecossistema desenvolvido para transformar a dinâmica de sal
     </tbody>
   </table>
 </details>
-
-<br />
-
 <a id="requisitos-não-funcionais"></a>
 <details>
   <summary> Requisitos Não-Funcionais </summary>
