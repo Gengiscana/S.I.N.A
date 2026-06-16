@@ -72,7 +72,7 @@ A **S.I.N.A** é um ecossistema desenvolvido para transformar a dinâmica de sal
   <img src="https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white" alt="OpenCV">
   <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
   <img src="https://img.shields.io/badge/Raspberry%20Pi-A22846?style=for-the-badge&logo=raspberrypi&logoColor=white" alt="Raspberry Pi">
-  <img src="https://img.shields.io/badge/Power_BI-F2C811?style=for-the-badge&logo=microsoftpowerbi&logoColor=black" alt="Power BI">
+  <img src="https://img.shields.io/badge/Power_BI-F2C811?style=for-the-badge&logo=temporal&logoColor=black" alt="Power BI">
 </div>
 
 
