@@ -57,9 +57,9 @@
 
 ## Sobre o Projeto
 
-O **S.I.N.A** é um ecossistema desenvolvido para transformar a dinâmica de sala de aula. Através de uma câmera acoplada a um tripé e cartões físicos de MDF (produzidos via corte a laser), o sistema escaneia as respostas dos alunos simultaneamente utilizando **OpenCV**.
+A **S.I.N.A** é um ecossistema desenvolvido para transformar a dinâmica de sala de aula. Através de uma câmera acoplada a um tripé e cartões físicos de MDF (produzidos via corte a laser), o sistema escaneia as respostas dos alunos simultaneamente utilizando **OpenCV**.
 
-**Por que o S.I.N.A?**
+**Por que a S.I.N.A?**
 * **Conformidade Legal:** Respeita a proibição de celulares em sala (Lei 15.100/2025).
 * **Autonomia:** Utiliza processamento local via **Raspberry Pi** dentro da rede SESI.
 * **Gamificação:** Gera rankings automáticos e dashboards no **Power BI** para visualização em TVs escolares.
