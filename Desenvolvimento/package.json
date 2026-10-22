@@ -1,0 +1,33 @@
+{
+  "name": "s.i.n.a.",
+  "version": "1.0.0",
+  "description": "<a id=\"readme-top\"></a>",
+  "keywords": [
+    "Aprendizagem",
+    "S.I.N.A.",
+    "TCC",
+    "Robôs"
+  ],
+  "homepage": "https://github.com/Gengiscana/S.I.N.A#readme",
+  "bugs": {
+    "url": "https://github.com/Gengiscana/S.I.N.A/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gengiscana/S.I.N.A.git"
+  },
+  "license": "ISC",
+  "author": "Vitor, Guilherme, Felipe, Bruno, Pietro",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node --watch server.js",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {}
+}
