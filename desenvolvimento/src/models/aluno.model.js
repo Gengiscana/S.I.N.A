@@ -2,7 +2,7 @@ const con = require("../config/db")
 
 const cadastrar = async ({nome, email, senha}) =>{
     const [resultado] = await con.query(
-        "INSERT INTO aluno  VALUES (DEFAULT ?, password(?));",
+        "INSERT INTO aluno (nome, email, senha) VALUES (?, ?, ?)",
         [nome, email, senha]
     )
     return{
@@ -22,7 +22,7 @@ const listar = async () => {
 
 const buscar = async (nome) => {
     const [resultado] = await con.query(
-        "SELECT id, nome, email FROM aluno WHERE nome = ?", [nome]
+        "SELECT id, nome, email FROM aluno WHERE nome LIKE ?", [`%${nome}%`]
     )
 
     return resultado

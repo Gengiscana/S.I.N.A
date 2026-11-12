@@ -1,16 +1,16 @@
-const express = require("express")
-const routes = express.Router()
+// const express = require("express")
+// const routes = express.Router()
 
-const {cadastrar, listar, buscar, excluir, atualizar} = require("../controllers/historico.controller")
+// const {cadastrar, listar, buscar, excluir, atualizar} = require("../controllers/historico.controller")
 
-routes.post("/cadastrar", cadastrar)
+// routes.post("/cadastrar", cadastrar)
 
-routes.get("/listar", listar)
+// routes.get("/listar", listar)
 
-routes.get("/buscar/:id", buscar)
+// routes.get("/buscar/:id", buscar)
 
-routes.delete("/excluir/:id", excluir)
+// routes.delete("/excluir/:id", excluir)
 
-routes.patch("/atualizar/:id", atualizar)
+// routes.patch("/atualizar/:id", atualizar)
 
-module.exports = routes
+// module.exports = routes

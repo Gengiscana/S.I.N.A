@@ -12,8 +12,10 @@ app.use("/alunos", alunoRoutes)
 const professorRoutes = require("./desenvolvimento/src/routes/professor.routes")
 app.use("/professores", professorRoutes)
 
-const historicoRoutes = require("./desenvolvimento/src/routes/historico.routes")
-app.use("/historicos", historicoRoutes)
+// const historicoRoutes = require("./desenvolvimento/src/routes/historico.routes")
+// app.use("/historicos", historicoRoutes)
+
+// Detalhe que é importante descomentar tudo relacionade ao histórico quando o mesmo tiver uma table relacionada no banco de dados
 
 const questoesRoutes = require("./desenvolvimento/src/routes/questoes.routes")
 app.use("/questoes", questoesRoutes)

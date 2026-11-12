@@ -16,7 +16,13 @@ const atualizar = async (req, res) => {
 }
 
 const buscar = async (req, res) => {
-    const resposta = await alunoModel.buscar(req.params.nome)
+    const { nome } = req.query
+
+    if (!nome || !nome.trim()) {
+        return res.status(400).json({ erro: "Informe o nome na query" })
+    }
+
+    const resposta = await alunoModel.buscar(nome.trim())
     res.status(200).json(resposta).end()
 }
 
