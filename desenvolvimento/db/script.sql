@@ -4,16 +4,17 @@ create database sina;
 
 use sina;
 
-create table cadastro(
-    id int (11) primary key not null auto_increment,
-    email varchar(100) not null,
-    senha varchar(50) not null
-);
 create table aluno(
-    id
+    id int (11) primary key not null auto_increment,
+    nome varchar(100) not null,
+    email varchar(100) not null, 
+    senha varchar(50) not null,
 );
 create table professor(
-
+    id int (11) primary key not null auto_increment,
+    nome varchar(100) not null,
+    email varchar(100) not null, 
+    senha varchar(50) not null,
 );
 
 create table turma(

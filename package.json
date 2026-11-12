@@ -1,0 +1,29 @@
+{
+  "name": "S.I.N.A",
+  "version": "1.0.0",
+  "description": "Trabalho de conclusão de curso do SENAI, projeto Shark Tank",
+  "main": "server.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "dev": "node --watch server.js",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "SENAI",
+    "Shark Tank",
+    "S.I.N.A",
+    "TCC"
+  ],
+  "author": "Vitor, Felipe, Pietro, Bruno, Guilherme",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.9",
+    "express": "^5.3.0",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.24.6"
+  }
+}
