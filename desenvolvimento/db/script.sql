@@ -17,7 +17,7 @@ create table professor(
     senha varchar(50) not null,
 );
 
-create table turma(
+create table sala(
     id int primary key not null auto_increment,
     aluno_id
     professor_id int not null,

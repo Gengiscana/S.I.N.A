@@ -6,6 +6,21 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
+const alunoRoutes = require("./desenvolvimento/src/routes/aluno.routes")
+app.use("/alunos", alunoRoutes)
+
+const professorRoutes = require("./desenvolvimento/src/routes/professor.routes")
+app.use("/professores", professorRoutes)
+
+const historicoRoutes = require("./desenvolvimento/src/routes/historico.routes")
+app.use("/historicos", historicoRoutes)
+
+const questoesRoutes = require("./desenvolvimento/src/routes/questoes.routes")
+app.use("/questoes", questoesRoutes)
+
+const salaRoutes = require("./desenvolvimento/src/routes/sala.routes")
+app.use("/salas", salaRoutes)
+
 app.listen(3000, () => {
     console.log(`Server ta rodando top ai no 3000`)
 })

@@ -8,8 +8,7 @@ const cadastrar = async ({nome, email, senha}) =>{
     return{
         id: resultado.insertId,
         nome,
-        email,
-        senha
+        email
     }
 }
 
@@ -29,7 +28,7 @@ const buscar = async (nome) => {
     return resultado
 }
 
-const atualizar = async (idados, id) => {
+const atualizar = async (dados, id) => {
     const [resultado] = await con.query(
         "UPDATE aluno SET ? WHERE id = ?",[dados, id]
     )
@@ -46,5 +45,9 @@ const excluir = async (id) => {
 }
 
 module.exports = {
-    listar, cadastrar, buscar, atualizar, excluir
+    listar,
+    cadastrar,
+    buscar,
+    atualizar,
+    excluir
 }
