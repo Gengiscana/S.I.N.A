@@ -1,118 +1,94 @@
-
 DROP DATABASE IF EXISTS sina;
-
 CREATE DATABASE sina;
-
 USE sina;
 
--- =========================
--- ALUNO
--- =========================
+CREATE TABLE sala (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(20) NOT NULL UNIQUE
+);
 
 CREATE TABLE aluno (
     id INT PRIMARY KEY AUTO_INCREMENT,
+    sala_id INT NOT NULL,
     nome VARCHAR(100) NOT NULL,
-    email VARCHAR(100) NOT NULL UNIQUE,
-    senha VARCHAR(255) NOT NULL
+    email VARCHAR(150) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL,
+    UNIQUE (id, sala_id),
+    FOREIGN KEY (sala_id)
+        REFERENCES sala(id)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT
 );
-
--- =========================
--- PROFESSOR
--- =========================
 
 CREATE TABLE professor (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100) NOT NULL,
-    email VARCHAR(100) NOT NULL UNIQUE,
+    email VARCHAR(150) NOT NULL UNIQUE,
     senha VARCHAR(255) NOT NULL
 );
 
--- =========================
--- SALA
--- =========================
-
-CREATE TABLE sala (
+CREATE TABLE materia (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(100) NOT NULL,
-    materia VARCHAR(100) NOT NULL
+    nome VARCHAR(100) NOT NULL UNIQUE
 );
 
--- =========================
--- ALUNO_SALA
--- Relaciona alunos e salas
--- =========================
-
-CREATE TABLE aluno_sala (
-    aluno_id INT NOT NULL,
+CREATE TABLE sala_materia (
     sala_id INT NOT NULL,
-
-    PRIMARY KEY (aluno_id, sala_id),
-
-    FOREIGN KEY (aluno_id)
-        REFERENCES aluno(id)
-        ON DELETE CASCADE,
-
+    materia_id INT NOT NULL,
+    PRIMARY KEY (sala_id, materia_id),
     FOREIGN KEY (sala_id)
         REFERENCES sala(id)
-        ON DELETE CASCADE
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT,
+    FOREIGN KEY (materia_id)
+        REFERENCES materia(id)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT
 );
 
--- =========================
--- PROFESSOR_SALA
--- Relaciona professores e salas
--- =========================
-
-CREATE TABLE professor_sala (
+CREATE TABLE professor_materia_sala (
     professor_id INT NOT NULL,
     sala_id INT NOT NULL,
-
-    PRIMARY KEY (professor_id, sala_id),
-
+    materia_id INT NOT NULL,
+    PRIMARY KEY (professor_id, sala_id, materia_id),
     FOREIGN KEY (professor_id)
         REFERENCES professor(id)
-        ON DELETE CASCADE,
-
-    FOREIGN KEY (sala_id)
-        REFERENCES sala(id)
-        ON DELETE CASCADE
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT,
+    FOREIGN KEY (sala_id, materia_id)
+        REFERENCES sala_materia(sala_id, materia_id)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT
 );
-
--- =========================
--- QUESTAO
--- =========================
 
 CREATE TABLE questao (
     id INT PRIMARY KEY AUTO_INCREMENT,
     sala_id INT NOT NULL,
-    questao TEXT NOT NULL,
-
-    UNIQUE (sala_id, id),
-
-    FOREIGN KEY (sala_id)
-        REFERENCES sala(id)
-        ON DELETE CASCADE
+    materia_id INT NOT NULL,
+    professor_id INT NOT NULL,
+    enunciado TEXT NOT NULL,
+    UNIQUE (id, sala_id),
+    FOREIGN KEY (sala_id, materia_id)
+        REFERENCES sala_materia(sala_id, materia_id)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT,
+    FOREIGN KEY (professor_id, sala_id, materia_id)
+        REFERENCES professor_materia_sala(professor_id, sala_id, materia_id)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT
 );
-
--- =========================
--- ALTERNATIVA
--- =========================
 
 CREATE TABLE alternativa (
     id INT PRIMARY KEY AUTO_INCREMENT,
     questao_id INT NOT NULL,
     texto_alternativa TEXT NOT NULL,
     is_correta BOOLEAN NOT NULL DEFAULT FALSE,
-
     UNIQUE (id, questao_id),
-
     FOREIGN KEY (questao_id)
         REFERENCES questao(id)
-        ON DELETE CASCADE
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT
 );
-
--- =========================
--- RESPOSTA_ALUNO
--- =========================
 
 CREATE TABLE resposta_aluno (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -120,49 +96,60 @@ CREATE TABLE resposta_aluno (
     sala_id INT NOT NULL,
     questao_id INT NOT NULL,
     alternativa_id INT NOT NULL,
-
-    data_envio TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-
-    -- Uma resposta por aluno em cada questão
+    data_envio TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     UNIQUE (aluno_id, questao_id),
-
-    -- O aluno precisa estar matriculado na sala
     FOREIGN KEY (aluno_id, sala_id)
-        REFERENCES aluno_sala(aluno_id, sala_id)
-        ON DELETE CASCADE,
-
-    -- A questão precisa pertencer à sala
-    FOREIGN KEY (sala_id, questao_id)
-        REFERENCES questao(sala_id, id)
-        ON DELETE CASCADE,
-
-    -- A alternativa precisa pertencer à questão
+        REFERENCES aluno(id, sala_id)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT,
+    FOREIGN KEY (questao_id, sala_id)
+        REFERENCES questao(id, sala_id)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT,
     FOREIGN KEY (alternativa_id, questao_id)
         REFERENCES alternativa(id, questao_id)
-        ON DELETE CASCADE
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT
 );
 
--- ===== Dados de teste =====
- 
-INSERT INTO aluno (nome, email, senha) VALUES
-('Ana Souza',     'ana@teste.com',     '123456'),
-('Bruno Lima',    'bruno@teste.com',   '123456'),
-('Carla Mendes',  'carla@teste.com',   '123456');
- 
+INSERT INTO sala (nome) VALUES
+('1A'),
+('1B'),
+('2A'),
+('2C');
+
+INSERT INTO aluno (sala_id, nome, email, senha) VALUES
+(1, 'João Silva', 'joao@email.com', 'HASH_DA_SENHA'),
+(1, 'Maria Souza', 'maria@email.com', 'HASH_DA_SENHA'),
+(2, 'Pedro Santos', 'pedro@email.com', 'HASH_DA_SENHA'),
+(3, 'Lucas Oliveira', 'lucas@email.com', 'HASH_DA_SENHA');
+
 INSERT INTO professor (nome, email, senha) VALUES
-('Prof. Ricardo Alves', 'ricardo@teste.com', 'prof123'),
-('Profa. Marina Costa', 'marina@teste.com',  'prof123');
- 
-INSERT INTO sala (aluno_id, professor_id, materia) VALUES
-(1, 1, 'Matemática'),
-(2, 1, 'Matemática'),
-(1, 2, 'História'),
-(3, 2, 'Geografia');
- 
-INSERT INTO questao (sala_id, questao, gabarito) VALUES
-(1, 'Quanto é 7 x 8?', '56'),
-(1, 'Qual é a raiz quadrada de 144?', '12'),
-(2, 'Resolva: 2x + 4 = 10', 'x = 3'),
-(3, 'Em que ano começou a Primeira Guerra Mundial?', '1914'),
-(3, 'Quem proclamou a Independência do Brasil?', 'Dom Pedro I'),
-(4, 'Qual é a capital da Austrália?', 'Camberra');
+('Carlos Mendes', 'carlos@email.com', 'HASH_DA_SENHA'),
+('Ana Ferreira', 'ana@email.com', 'HASH_DA_SENHA');
+
+INSERT INTO materia (nome) VALUES
+('Matemática'),
+('História'),
+('Física'),
+('Português');
+
+INSERT INTO sala_materia (sala_id, materia_id) VALUES
+(1, 1),
+(1, 2),
+(1, 4),
+(2, 1),
+(2, 2),
+(3, 1),
+(3, 3),
+(4, 2),
+(4, 4);
+
+INSERT INTO professor_materia_sala
+(professor_id, sala_id, materia_id) VALUES
+(1, 1, 1),
+(1, 2, 1),
+(1, 3, 3),
+(2, 1, 2),
+(2, 4, 2),
+(2, 1, 4);
