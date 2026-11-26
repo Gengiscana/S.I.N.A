@@ -13,7 +13,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/Gengiscana/S.I.N.A">
-    <img src="logo.png" alt="Logo" width="150">
+    <img src="nw logo.png" alt="Logo" width="200">
   </a>
 
 <h3 align="center">S.I.N.A</h3>
