@@ -78,7 +78,7 @@ CREATE TABLE questao (
         ON DELETE RESTRICT
 );
 
-CREATE TABLE alternativas (
+CREATE TABLE alternativa (
     id INT PRIMARY KEY AUTO_INCREMENT,
     questao_id INT NOT NULL,
     texto_alternativa TEXT NOT NULL,
@@ -107,7 +107,7 @@ CREATE TABLE resposta_aluno (
         ON UPDATE CASCADE
         ON DELETE RESTRICT,
     FOREIGN KEY (alternativa_id, questao_id)
-        REFERENCES alternativas(id, questao_id)
+        REFERENCES alternativa(id, questao_id)
         ON UPDATE CASCADE
         ON DELETE RESTRICT
 );
@@ -153,6 +153,3 @@ INSERT INTO professor_materia_sala
 (2, 1, 2),
 (2, 4, 2),
 (2, 1, 4);
-
-/* Se possível, crie informações pra por na table, não precisam fazer sentido, é só pra ter algo nelas e ser possivel fazer alguns testes. Com amor Gincana <3 */
-/* vai toma no cu*/
