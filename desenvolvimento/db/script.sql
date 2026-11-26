@@ -35,7 +35,9 @@ CREATE TABLE materia (
 CREATE TABLE sala_materia (
     sala_id INT NOT NULL,
     materia_id INT NOT NULL,
+
     PRIMARY KEY (sala_id, materia_id),
+
     FOREIGN KEY (sala_id)
         REFERENCES sala(id)
         ON UPDATE CASCADE
@@ -50,7 +52,9 @@ CREATE TABLE professor_materia_sala (
     professor_id INT NOT NULL,
     sala_id INT NOT NULL,
     materia_id INT NOT NULL,
+
     PRIMARY KEY (professor_id, sala_id, materia_id),
+
     FOREIGN KEY (professor_id)
         REFERENCES professor(id)
         ON UPDATE CASCADE
@@ -68,6 +72,7 @@ CREATE TABLE questao (
     professor_id INT NOT NULL,
     enunciado TEXT NOT NULL,
     UNIQUE (id, sala_id),
+
     FOREIGN KEY (sala_id, materia_id)
         REFERENCES sala_materia(sala_id, materia_id)
         ON UPDATE CASCADE
@@ -84,6 +89,7 @@ CREATE TABLE alternativas (
     texto_alternativa TEXT NOT NULL,
     is_correta BOOLEAN NOT NULL DEFAULT FALSE,
     UNIQUE (id, questao_id),
+
     FOREIGN KEY (questao_id)
         REFERENCES questao(id)
         ON UPDATE CASCADE
@@ -98,6 +104,7 @@ CREATE TABLE resposta_aluno (
     alternativa_id INT NOT NULL,
     data_envio TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     UNIQUE (aluno_id, questao_id),
+
     FOREIGN KEY (aluno_id, sala_id)
         REFERENCES aluno(id, sala_id)
         ON UPDATE CASCADE
@@ -154,5 +161,34 @@ INSERT INTO professor_materia_sala
 (2, 4, 2),
 (2, 1, 4);
 
-/* Se possível, crie informações pra por na table, não precisam fazer sentido, é só pra ter algo nelas e ser possivel fazer alguns testes. Com amor Gincana <3 */
-/* vai toma no cu*/
+INSERT INTO questao
+(sala_id, materia_id, professor_id, enunciado) VALUES
+(1, 4, 2, 'Qual das opções abaixo apresenta uma figura de linguagem?'), 
+(1, 1, 1, 'Quanto é 2 + 2 * 2?'),
+(2, 1, 1, 'Resolva a equação do segundo grau: x^2 - 5x + 6 = 0'),
+(3, 3, 1, 'Qual é a unidade de medida da força no Sistema Internacional?'),
+(1, 2, 2, 'Em que ano ocorreu a Proclamação da República no Brasil?');
+
+INSERT INTO alternativas 
+(questao_id, texto_alternativa, is_correta) VALUES
+(1, 'Metáfora', 1),
+(1, 'Fotossíntese', 0),
+(1, 'Gravidade', 0),
+(2, '6', 0),
+(2, '8', 0),
+(2, '4', 1),
+(3, 'x = 2 e x = 3', 1),
+(3, 'x = -2 e x = -3', 0),
+(4, 'Joule', 0),
+(4, 'Newton', 1),
+(4, 'Watt', 0),
+(5, '1500', 0),
+(5, '1822', 0),
+(5, '1889', 1);
+
+INSERT INTO resposta_aluno
+(aluno_id, sala_id, questao_id, alternativa_id) VALUES
+(1, 1, 1, 1),
+(2, 1, 1, 2),
+(3, 2, 3, 7),
+(1, 1, 2, 6);
