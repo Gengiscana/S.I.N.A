@@ -126,14 +126,14 @@ INSERT INTO sala (nome) VALUES
 ('2C');
 
 INSERT INTO aluno (sala_id, nome, email, senha) VALUES
-(1, 'João Silva', 'joao@email.com', 'HASH_DA_SENHA'),
-(1, 'Maria Souza', 'maria@email.com', 'HASH_DA_SENHA'),
-(2, 'Pedro Santos', 'pedro@email.com', 'HASH_DA_SENHA'),
-(3, 'Lucas Oliveira', 'lucas@email.com', 'HASH_DA_SENHA');
+(1, 'João Silva', 'joao@email.com', 'senha123'),
+(1, 'Maria Souza', 'maria@email.com', 'senha123'),
+(2, 'Pedro Santos', 'pedro@email.com', 'senha123'),
+(3, 'Lucas Oliveira', 'lucas@email.com', 'senha123');
 
 INSERT INTO professor (nome, email, senha) VALUES
-('Carlos Mendes', 'carlos@email.com', 'HASH_DA_SENHA'),
-('Ana Ferreira', 'ana@email.com', 'HASH_DA_SENHA');
+('Carlos Mendes', 'carlos@email.com', 'senha321'),
+('Ana Ferreira', 'ana@email.com', 'senha321');
 
 INSERT INTO materia (nome) VALUES
 ('Matemática'),
@@ -160,7 +160,6 @@ INSERT INTO professor_materia_sala
 (2, 1, 2),
 (2, 4, 2),
 (2, 1, 4);
-<<<<<<< HEAD
 
 INSERT INTO questao
 (sala_id, materia_id, professor_id, enunciado) VALUES
@@ -193,5 +192,3 @@ INSERT INTO resposta_aluno
 (2, 1, 1, 2),
 (3, 2, 3, 7),
 (1, 1, 2, 6);
-=======
->>>>>>> 36cf8633836e31e49b0870e6e4d33930316a5db7
