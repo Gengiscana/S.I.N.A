@@ -155,3 +155,4 @@ INSERT INTO professor_materia_sala
 (2, 1, 4);
 
 /* Se possível, crie informações pra por na table, não precisam fazer sentido, é só pra ter algo nelas e ser possivel fazer alguns testes. Com amor Gincana <3 */
+/* vai toma no cu*/
