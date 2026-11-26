@@ -1,21 +1,19 @@
 const con = require("../config/db")
 
-const cadastrar = async ({aluno_id, professor_id, materia}) =>{
+const cadastrar = async ({nome}) =>{
     const [resultado] = await con.query(
-        "INSERT INTO sala  VALUES (DEFAULT ?, ?, ?);",
-        [aluno_id, professor_id, materia]
+        "INSERT INTO sala (nome) VALUES (?)",
+        [nome]
     )
     return{
         id: resultado.insertId,
-        aluno_id,
-        professor_id,
-        materia
+        nome
     }
 }
 
 const listar = async () => {
     const [resultado] = await con.query(
-        "SELECT id, aluno_id, professor_id, materia FROM sala"
+        "SELECT id, nome FROM sala"
     )
 
     return resultado
@@ -23,7 +21,7 @@ const listar = async () => {
 
 const buscar = async (id) => {
     const [resultado] = await con.query(
-        "SELECT id, aluno_id, professor_id, materia FROM sala WHERE id = ?", [id]
+        "SELECT id, nome FROM sala WHERE id = ?", [id]
     )
 
     return resultado

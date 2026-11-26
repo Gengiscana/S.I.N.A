@@ -7,7 +7,7 @@ routes.post("/cadastrar", cadastrar)
 
 routes.get("/listar", listar)
 
-routes.get("/buscar", buscar)
+routes.get("/buscar/:nome", buscar)
 
 routes.delete("/excluir/:id", excluir)
 

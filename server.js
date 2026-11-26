@@ -23,6 +23,12 @@ app.use("/questoes", questoesRoutes)
 const salaRoutes = require("./desenvolvimento/src/routes/sala.routes")
 app.use("/salas", salaRoutes)
 
+const alternativasRoutes = require("./desenvolvimento/src/routes/alternativas.routes")
+app.use("/alternativas", alternativasRoutes)
+
+const respostas_alunoRoutes = require("./desenvolvimento/src/routes/respostas_aluno.routes")
+app.use("/respostas_aluno", respostas_alunoRoutes)
+
 app.listen(3000, () => {
     console.log(`Server ta rodando top ai no 3000`)
 })
