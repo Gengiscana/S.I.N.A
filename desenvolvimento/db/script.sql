@@ -83,7 +83,7 @@ CREATE TABLE questao (
         ON DELETE RESTRICT
 );
 
-CREATE TABLE alternativas (
+CREATE TABLE alternativa (
     id INT PRIMARY KEY AUTO_INCREMENT,
     questao_id INT NOT NULL,
     texto_alternativa TEXT NOT NULL,
@@ -114,7 +114,7 @@ CREATE TABLE resposta_aluno (
         ON UPDATE CASCADE
         ON DELETE RESTRICT,
     FOREIGN KEY (alternativa_id, questao_id)
-        REFERENCES alternativas(id, questao_id)
+        REFERENCES alternativa(id, questao_id)
         ON UPDATE CASCADE
         ON DELETE RESTRICT
 );
@@ -160,6 +160,7 @@ INSERT INTO professor_materia_sala
 (2, 1, 2),
 (2, 4, 2),
 (2, 1, 4);
+<<<<<<< HEAD
 
 INSERT INTO questao
 (sala_id, materia_id, professor_id, enunciado) VALUES
@@ -192,3 +193,5 @@ INSERT INTO resposta_aluno
 (2, 1, 1, 2),
 (3, 2, 3, 7),
 (1, 1, 2, 6);
+=======
+>>>>>>> 36cf8633836e31e49b0870e6e4d33930316a5db7

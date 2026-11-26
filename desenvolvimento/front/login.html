@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Entrar | SINA</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/login.css">
+<script>try{var t=localStorage.getItem("sina_tema");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+<div class="shell">
+
+  <!-- Lado esquerdo: marca -->
+  <section class="art" aria-hidden="true">
+    <div class="photo"></div>
+    <svg class="lines" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <line x1="0" y1="0" x2="100" y2="100"/>
+      <line x1="100" y1="0" x2="0" y2="100"/>
+    </svg>
+    <div class="brand"><img src="img/logo.png" alt=""><span>S.I.N.A</span></div>
+    <svg class="mark" viewBox="-100 -100 200 200">
+      <g class="spin" fill="none" stroke-width="6">
+        <line x1="0" y1="-30" x2="0" y2="-88" stroke="#fff"/>
+        <line x1="0" y1="-30" x2="0" y2="-88" stroke="#fff" transform="rotate(90)"/>
+        <line x1="0" y1="-30" x2="0" y2="-88" stroke="#fff" transform="rotate(180)"/>
+        <line x1="0" y1="-30" x2="0" y2="-88" stroke="#fff" transform="rotate(270)"/>
+        <line x1="0" y1="-24" x2="0" y2="-58" stroke="#fff" opacity=".85" transform="rotate(45)"/>
+        <line x1="0" y1="-24" x2="0" y2="-58" stroke="#dc143c" transform="rotate(135)"/>
+        <line x1="0" y1="-24" x2="0" y2="-58" stroke="#fff" opacity=".85" transform="rotate(225)"/>
+        <line x1="0" y1="-24" x2="0" y2="-58" stroke="#fff" opacity=".85" transform="rotate(315)"/>
+      </g>
+      <circle r="5" fill="#dc143c"/>
+    </svg>
+    <p class="legal">Sistema Integrado de Aprendizagem Ativa · SESI</p>
+  </section>
+
+  <!-- Lado direito: formulário -->
+  <section class="panel">
+    <div class="top"><button type="button" class="ib" id="tema"></button></div>
+
+    <form id="f">
+      <h1>Entrar</h1>
+      <p class="sub" id="sub">Acesse com a sua conta de aluno.</p>
+
+      <div class="seg" role="radiogroup" aria-label="Tipo de acesso">
+        <label><input type="radio" name="tipo" value="aluno" checked><span>Aluno</span></label>
+        <label><input type="radio" name="tipo" value="professor"><span>Professor</span></label>
+      </div>
+
+      <div class="row">
+        <label class="fld">
+          <span>E-mail</span>
+          <input id="email" type="email" placeholder="nome@escola.com" autocomplete="username" required>
+        </label>
+        <label class="fld">
+          <span>Senha</span>
+          <div class="pw">
+            <input id="senha" type="password" placeholder="••••••••" autocomplete="current-password" required>
+            <button type="button" id="ver" aria-label="Mostrar senha"></button>
+          </div>
+        </label>
+      </div>
+
+      <label class="chk">
+        <input type="checkbox" id="lembrar" checked>
+        <i aria-hidden="true"></i>
+        <span>Mantenha-me conectado</span>
+      </label>
+
+      <p class="err" id="err" role="alert"></p>
+      <button class="go" id="go">Entrar</button>
+    </form>
+
+    <p class="foot">Sem acesso? Fale com a secretaria da escola.</p>
+  </section>
+</div>
+<div id="toast" role="status"></div>
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/login.js"></script>
+</body>
+</html>
